@@ -29,3 +29,5 @@ Ensure you have Node.js (v16 or higher) installed on your system.
    ```bash
    git clone <YOUR_GITHUB_REPOSITORY_URL>
    cd employee-management-dashboard
+
+   <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9d4e0cd4-6999-40d9-9596-634864e11732" />
