@@ -53,4 +53,4 @@ Rate limiting restricts the number of requests a user or IP address can make to 
 * **Why it is dangerous**: Allows any external domain to make requests to your API, exposing resources to cross-origin abuse[cite: 1].
 * **Fix**: Restrict CORS to explicitly trusted origins:
   ```javascript
-  app.use(cors({ origin: '[https://your-app-domain.com](https://your-app-domain.com)' }));
+  app.use(cors({ origin: '[http://localhost:5173](http://localhost:5173)' }));
