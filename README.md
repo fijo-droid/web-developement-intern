@@ -53,4 +53,8 @@ Ensure you have Node.js (v16 or higher) and npm installed on your system.
 
 ## Screenshots
 
-*(Screenshots of the Employee Dashboard and detail views can be added here)*
+#EmployeedetailsPage
+<img width="1312" height="633" alt="EmployeedetailspagePNG" src="https://github.com/user-attachments/assets/ab704a46-1517-4b97-ad7c-d4fbb843eedc" />
+#EmployeesigninPage
+<img width="809" height="531" alt="singinpagePNG" src="https://github.com/user-attachments/assets/960b389d-3d6f-4423-a13b-52f2874ec6f6" />
+
