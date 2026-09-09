@@ -109,5 +109,3 @@ Store sensitive JWTs or session identifiers in `HttpOnly`, `Secure`, and `SameSi
 
 ---
 
-### Task 5 — Part D: Optional Bonus
-No additional security tools (e.g., Burp Suite, OWASP ZAP) were used for this assessment.
