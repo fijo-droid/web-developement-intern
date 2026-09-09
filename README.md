@@ -7,13 +7,14 @@ A responsive, modern Employee Management Dashboard built with React, Vite, and T
 - **Authentication Flow**: Mock login/logout system with input validation.
 - **Metrics Overview**: Real-time display of key statistics including total employees, active count, and department breakdown.
 - **Search & Filtering**: Search employees by name, email, or role, and filter records by department.
+- **Sorting by Joining Date**: Clear ascending and descending sorting by employee joining date.
 - **Pagination**: Client-side pagination handling employee lists seamlessly.
-- **Detailed Modal View**: Inspect individual employee records in an overlay modal.
-- **Clean Aesthetic**: Modern white-themed UI built with Tailwind CSS and Lucide React icons.
+- **Detailed Modal View**: Inspect individual employee records in an overlay modal showing name, email, role, department, joining date, and employment status.
+- **Clean Aesthetic**: Modern UI built with Tailwind CSS and Lucide React icons.
 
 ## Technologies Used
 
-- **Frontend**: React, Vite
+- **Frontend**: React (v18), Vite (v5)
 - **Styling**: Tailwind CSS, PostCSS, Autoprefixer
 - **Icons**: Lucide React
 
@@ -21,14 +22,14 @@ A responsive, modern Employee Management Dashboard built with React, Vite, and T
 
 ### Prerequisites
 
-Ensure you have Node.js (v16 or higher) installed on your system.
+Ensure you have Node.js (v16 or higher) and npm installed on your system.
 
 ### Installation & Local Setup
 
 1. Clone the repository:
    ```bash
-   git clone <https://github.com/fijo-droid/web-developement-intern.git>
-   cd employee-management-dashboard
+   git clone https://github.com/fijo-droid/web-developement-intern.git
+   cd web-developement-intern
    ```
 2. Install dependencies:
    ```bash
@@ -38,13 +39,18 @@ Ensure you have Node.js (v16 or higher) installed on your system.
    ```bash
    npm run dev
    ```
+4. Build for production:
+   ```bash
+   npm run build
+   ```
 
 ## Assumptions Made
 
-- Employee data is dummy/mock data.
-- Authentication is implemented for demonstration purposes and does not connect to a real backend.
-- No production backend/database is required (local state and mock files are used).
+- **Mock Employee Data**: Employee records are stored as local client-side dummy data in `src/data/employees.js`.
+- **Demonstration Authentication**: The sign-in authentication flow is implemented for demonstration and assessment purposes; no real server authentication is connected.
+- **No Production Backend / Database**: No production backend, remote API, or database is required or implemented for this frontend assessment.
+- **No Real Secrets**: Only dummy data and demonstration inputs are used; no real credentials or production secrets are used in the application.
 
 ## Screenshots
 
-*(No screenshots available yet)*
+*(Screenshots of the Employee Dashboard and detail views can be added here)*

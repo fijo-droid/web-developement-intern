@@ -31,73 +31,83 @@ Rate limiting restricts the number of requests a user or IP address can make to 
 
 ## Task 5: Secure Coding & Basic Pentesting Awareness
 
-### Part A: Vulnerability Identification
+### Task 5 — Part A: Vulnerability Identification
 
 #### Example 1: `const password = "admin123";`
 * **Vulnerability**: Hardcoded Credentials.
 * **Why it is dangerous**: Plaintext credentials committed to code repositories can be extracted by anyone with access to the source code or client build files.
-* **Fix**: Remove hardcoded values and manage secrets via environment variables (`process.env.ADMIN_PASSWORD`).
+* **How to fix it**: Remove hardcoded values and manage secrets via environment variables (`process.env.ADMIN_PASSWORD`).
 
 #### Example 2: `element.innerHTML = userInput;`
 * **Vulnerability**: DOM-based Cross-Site Scripting (XSS).
 * **Why it is dangerous**: Executes un-sanitized user input as raw HTML/JavaScript in the browser context.
-* **Fix**: Use safe text rendering like `element.textContent = userInput` or React JSX string binding `{userInput}`.
+* **How to fix it**: Use safe text rendering like `element.textContent = userInput` or React JSX string binding `{userInput}`.
 
 #### Example 3: `localStorage.setItem("token", jwtToken);`
 * **Vulnerability**: Insecure Token Storage.
 * **Why it is dangerous**: Data in `localStorage` is accessible to any script running on the same domain, making it vulnerable to token theft via XSS.
-* **Fix**: Store authentication tokens in `HttpOnly`, `Secure`, and `SameSite` cookies that JavaScript cannot access.
+* **How to fix it**: Store authentication tokens in `HttpOnly`, `Secure`, and `SameSite` cookies that JavaScript cannot access.
 
 #### Example 4: `app.use(cors());`
 * **Vulnerability**: Permissive Cross-Origin Resource Sharing (CORS) Policy.
 * **Why it is dangerous**: Allows any external domain to make requests to your API, exposing resources to cross-origin abuse.
-* **Fix**: Restrict CORS to explicitly trusted origins:
+* **How to fix it**: Restrict CORS to explicitly trusted origins:
   ```javascript
   app.use(cors({ origin: 'https://your-app-domain.com' }));
   ```
 
-### Part B: Security Awareness Questions
+---
+
+### Task 5 — Part B: Security Awareness Questions
 
 #### 1. What is XSS?
-Cross-Site Scripting (XSS) is a vulnerability where an attacker injects malicious scripts into trusted websites, which are then executed by the victim's browser.
+Cross-Site Scripting (XSS) is a vulnerability where an attacker injects malicious client-side scripts into web pages viewed by other users, allowing attackers to hijack sessions, steal cookies, or manipulate page content.
 
 #### 2. What is CSRF?
-Cross-Site Request Forgery (CSRF) is an attack that forces an authenticated user to execute unwanted actions on a web application in which they are currently authenticated.
+Cross-Site Request Forgery (CSRF) is an attack that tricks an authenticated user into executing unwanted actions on a trusted web application where they are currently logged in, without their knowledge or consent.
 
 #### 3. Difference between Authentication and Authorization
-Authentication verifies identity (who you are), while authorization verifies permissions (what you are allowed to do).
+* **Authentication**: Confirms identity—verifying *who* a user is (e.g., username/password, OTP, biometrics).
+* **Authorization**: Determines privileges—verifying *what* an authenticated user is permitted to do or access (e.g., admin vs. standard user permissions).
 
 #### 4. Why should secrets not be exposed in frontend applications?
-Frontend code is visible to the client. Any secrets (like API keys or passwords) embedded in frontend code can be easily extracted by users, leading to unauthorized access or abuse of services.
+All frontend assets (JavaScript bundles, HTML, local state) are downloaded and fully visible to the client browser. Any secret (private API keys, database passwords, signing keys) stored in frontend code can be easily inspected, extracted, and abused by bad actors.
 
 #### 5. What is rate limiting?
-Rate limiting is a technique used to control the amount of incoming traffic to a network or application to prevent abuse, such as DoS attacks or brute-forcing.
+Rate limiting is a technique used to restrict the number of requests a user, IP address, or API token can execute within a specific time window, defending against brute-force attacks, credential stuffing, and Denial-of-Service (DoS).
 
 #### 6. Why is HTTPS important?
-HTTPS ensures that data transmitted between a user's browser and the web server is encrypted, protecting sensitive information from interception and tampering.
+HTTPS encrypts communication between the client's browser and the web server via TLS/SSL. This guarantees data confidentiality, integrity, and authenticity, preventing eavesdropping and Man-in-the-Middle (MitM) attacks.
 
 #### 7. What is SQL Injection?
-SQL Injection is a code injection technique where malicious SQL statements are inserted into entry fields for execution, allowing attackers to access, modify, or delete database data.
+SQL Injection (SQLi) occurs when untrusted user input is directly concatenated into database queries instead of using parameterized queries or prepared statements, enabling attackers to view, modify, or delete database records.
 
 #### 8. What is the OWASP Top 10?
-The OWASP Top 10 is a standard awareness document for developers and web application security that represents a broad consensus about the most critical security risks to web applications.
+The OWASP Top 10 is a globally recognized awareness document outlining the ten most critical web application security risks (such as Broken Access Control, Cryptographic Failures, and Injection), serving as an industry benchmark for secure web development.
 
-### Part C: Secure Development Practices
+---
 
-#### 1. API keys
-Store API keys in server-side environment variables and never expose them in client-side code. Use proxy endpoints on your backend to handle requests requiring API keys.
+### Task 5 — Part C: Secure Development Practices
 
-#### 2. User authentication
-Implement robust mechanisms using secure, proven libraries rather than rolling your own. Enforce strong password policies and use Multi-Factor Authentication (MFA) when possible.
+#### 1. API Keys
+Store API keys exclusively on the backend in environment variables. Avoid exposing sensitive keys in frontend code; instead, implement backend proxy endpoints to securely interact with third-party APIs.
 
-#### 3. Password storage
-Never store plaintext passwords. Hash passwords using strong, slow hashing algorithms with a unique salt per user (e.g., bcrypt, Argon2).
+#### 2. User Authentication
+Utilize established, battle-tested authentication libraries or services. Enforce strong password complexity, implement Multi-Factor Authentication (MFA), and protect endpoints against brute-force attempts with account lockouts or rate limits.
 
-#### 4. Form validation
-Always perform validation on the server side, even if client-side validation is present, to ensure that bypassed frontend checks do not compromise the system. Validate input types, lengths, and formats.
+#### 3. Password Storage
+Never store plaintext passwords. Use robust, salted cryptographic hashing algorithms designed for passwords, such as bcrypt, Argon2, or PBKDF2 with sufficient work factors.
 
-#### 5. File uploads
-Validate file types (using magic numbers, not just extensions), enforce file size limits, scan for malware if possible, and store uploaded files outside the web root or on a separate domain.
+#### 4. Form Validation
+Apply client-side validation for improved user experience and responsive feedback, but **always** enforce strict server-side validation and schema sanitization, as client-side checks can be bypassed easily.
 
-#### 6. JWT/session handling
-Store JWTs or session IDs in `HttpOnly` and `Secure` cookies to mitigate XSS attacks. Ensure tokens have reasonable expiration times and implement a secure token revocation strategy.
+#### 5. File Uploads
+Validate file types against an explicit whitelist using MIME type and file signature (magic numbers) verification rather than file extensions alone. Restrict file sizes, generate random filenames, and store uploaded files outside the web root or on isolated object storage (e.g., AWS S3).
+
+#### 6. JWT / Session Handling
+Store sensitive JWTs or session identifiers in `HttpOnly`, `Secure`, and `SameSite` cookies to safeguard them against XSS-based theft. Set appropriate token expiration times and establish token invalidation / revocation mechanisms upon logout.
+
+---
+
+### Task 5 — Part D: Optional Bonus
+No additional security tools (e.g., Burp Suite, OWASP ZAP) were used for this assessment.
