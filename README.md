@@ -59,6 +59,8 @@ Ensure you have Node.js (v16 or higher) and npm installed on your system.
 <img width="809" height="531" alt="singinpagePNG" src="https://github.com/user-attachments/assets/960b389d-3d6f-4423-a13b-52f2874ec6f6" />
 #EmployeesortingdepartmentPage
 <img width="1288" height="552" alt="EmployeedepartmentPage" src="https://github.com/user-attachments/assets/42ea7231-7cd6-41d7-b5cb-7bc94938399c" />
+#SortingEmployeedetailsdates
+<img width="1292" height="617" alt="SortingEmployeedetaildates" src="https://github.com/user-attachments/assets/0c1fc2de-ca1e-4419-9c9f-dc22eef73df6" />
 
 
 
