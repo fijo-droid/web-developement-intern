@@ -27,7 +27,7 @@ Ensure you have Node.js (v16 or higher) installed on your system.
 
 1. Clone the repository:
    ```bash
-   git clone <https://github.com/fijo-droid/web-developement-intern.gitL>
+   git clone <https://github.com/fijo-droid/web-developement-intern.git>
    cd employee-management-dashboard
    ```
 2. Install dependencies:
