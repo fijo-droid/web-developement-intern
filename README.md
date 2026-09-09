@@ -11,13 +11,13 @@ A responsive, modern Employee Management Dashboard built with React, Vite, and T
 - **Detailed Modal View**: Inspect individual employee records in an overlay modal.
 - **Clean Aesthetic**: Modern white-themed UI built with Tailwind CSS and Lucide React icons.
 
-## Tech Stack
+## Technologies Used
 
 - **Frontend**: React, Vite
 - **Styling**: Tailwind CSS, PostCSS, Autoprefixer
 - **Icons**: Lucide React
 
-## Getting Started
+## Setup Instructions
 
 ### Prerequisites
 
@@ -27,14 +27,24 @@ Ensure you have Node.js (v16 or higher) installed on your system.
 
 1. Clone the repository:
    ```bash
-   git clone <https://github.com/fijo-droid/web-developement-intern.git>
+   git clone <YOUR_GITHUB_REPOSITORY_URL>
    cd employee-management-dashboard
-   
-    ### Dashboard & Stats Overview
-   <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9d4e0cd4-6999-40d9-9596-634864e11732" />
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-   ### Search & Department Filters
-   <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/dfefe345-220d-4fd9-b136-4342d1a52408" />
+## Assumptions Made
 
-   ### Employee Details Modal
-   <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/dd35631a-24a6-47fc-97ca-150b4fbbb019" />
+- Employee data is dummy/mock data.
+- Authentication is implemented for demonstration purposes and does not connect to a real backend.
+- No production backend/database is required (local state and mock files are used).
+
+## Screenshots
+
+*(No screenshots available yet)*

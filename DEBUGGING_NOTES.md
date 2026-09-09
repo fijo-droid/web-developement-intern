@@ -1,8 +1,3 @@
----
-
-### File 2: `DEBUGGING_NOTES.md`
-
-```markdown
 # Debugging Notes & Resolution Log
 
 This document details identified issues, root cause analyses, and solutions implemented during the development of the Employee Management Dashboard.
@@ -24,3 +19,4 @@ Implemented a React `useEffect` hook listening to updates on `searchTerm` and `s
 useEffect(() => {
   setCurrentPage(1);
 }, [searchTerm, selectedDept]);
+```
